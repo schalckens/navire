@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Message;
 use App\Form\MessageType;
-use App\Service\GestionMessage;
+use App\Service\GestionContact;
 
 
 /**
