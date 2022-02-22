@@ -2,12 +2,14 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Message;
 use App\Form\MessageType;
 use App\Service\GestionContact;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
@@ -28,7 +30,32 @@ class MessageController extends AbstractController
        
        $form = $this->createForm(MessageType::class, $message)
                 ->add('save', SubmitType::class,  ['label' => 'Create']);
-        return $this->render('messaget/contact.html.twig', [
+        return $this->render('message/contact.html.twig', [
+            'form' => $form->createView(),
+        ]);
+   }
+   
+   /**
+    * @Route("/contact", name="contact")
+    * @param Request $request
+    * @param GestionContact $gestionContact
+    * @return Response
+    */
+   public function contact(Request $request, GestionContact $gestionContact) : Response {
+       $message = new Message();
+       
+       $form = $this->createForm(MessageType::class, $message);
+       $form->handleRequest($request);
+       
+       if($form->isSubmitted() && $form->isValid()){
+           $message = $form->getData();
+           
+           $gestionContact->envoiMailContact($message);
+           
+           return $this->redirectToRoute("home");
+       }
+       
+        return $this->render('message/contact.html.twig', [
             'form' => $form->createView(),
         ]);
    }

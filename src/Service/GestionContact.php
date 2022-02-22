@@ -30,7 +30,7 @@ class GestionContact {
                 ->to($message->getMail())
                 ->subject('Nouvelle demande')
                 ->text('Bonjour')
-                ->htmlTemplate('mail/mail.html.twig')
+                ->htmlTemplate('mail/mail.html.twig', ['message' => $message])
                 ->context([
                     'message' => $message,
                 ]);

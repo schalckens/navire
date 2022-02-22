@@ -19,6 +19,15 @@ class AisShipTypeController extends AbstractController
 //        ]);
 //    }
     
+     /**
+     * @Route("/test", name="test")
+     * @return Response
+     */
+    public function test() : Response {
+        return new Response("jhjh");
+    
+    }
+    
     /**
      * @Route("/voirtous", name="voirtous")
      * @return Response
