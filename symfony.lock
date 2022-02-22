@@ -125,7 +125,10 @@
             "branch": "master",
             "version": "1.0",
             "ref": "9d254a22efca7264203eea98b866f16f944b2f09"
-        }
+        },
+        "files": [
+            "./public/.htaccess"
+        ]
     },
     "symfony/asset": {
         "version": "v4.4.27"
@@ -232,6 +235,18 @@
     },
     "symfony/intl": {
         "version": "v4.4.34"
+    },
+    "symfony/mailer": {
+        "version": "4.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "bbfc7e27257d3a3f12a6fb0a42540a42d9623a37"
+        },
+        "files": [
+            "./config/packages/mailer.yaml"
+        ]
     },
     "symfony/maker-bundle": {
         "version": "1.36",

@@ -1,0 +1,9 @@
+<div class=""form-inline my-2">
+    {{ form_start(formSearch) }}
+    
+    {{ form_widget(formSearch.cherche, {'attr': {'placeholder': 'Entrez IMO or MMSI'}}) }}
+    {{ form_widget(formSearch.envoiimo, { 'label': 'Cherche IMO'}) }}
+    {{ form_widget(formSearch.envoimmsi, { 'label': 'Cherche MMSI'}) }}
+    
+    {{ form_end(formSearch) }}
+</div>

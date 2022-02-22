@@ -24,16 +24,15 @@ class Navire
      *      pattern="/[1-9]{7}/",
      *      message="Le numéro IMO doit comporter 7 chiffres"
      * )
-     * 
      */
     private $imo;
 
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\Length(
-     *      min=3,
-     *      max=100
-     * )
+     *                  min=3,
+     *                  max=100
+     *                  )
      */
     private $nom;
 
@@ -42,13 +41,12 @@ class Navire
      * @Assert\Regex(
      *      pattern="/[1-9]{9}/",
      *      message="Le numéro MMSI doit comporter 9 chiffres"
-     * )
+     *              )
      */
     private $mmsi;
 
     /**
      * @ORM\Column(type="string", length=10)
-     * 
      */
     private $indicatifAppel;
 
@@ -103,7 +101,7 @@ class Navire
         return $this->indicatifAppel;
     }
 
-    public function setIndicatifAppel(?string $indicatifAppel): self
+    public function setIndicatifAppel(string $indicatifAppel): self
     {
         $this->indicatifAppel = $indicatifAppel;
 
@@ -115,7 +113,7 @@ class Navire
         return $this->eta;
     }
 
-    public function setEta(?\DateTimeInterface $eta): self
+    public function setEta(\DateTimeInterface $eta): self
     {
         $this->eta = $eta;
 

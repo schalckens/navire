@@ -1,17 +1,15 @@
-{% extends 'base.html.twig' %}
 <footer class="footer fixed-bottom bg-primary">
-    {% block footer %} 
+    {% block footer %}
         <div class="row">
             <div class="col-4 text-left txt-footer">
-                <a href="#" class="text-white">Contact</a>
+                <a href="{{ path('message_contact') }}" class="text-white" >Contact</a><br>
                 <a href="https://moodle.benoitroche.fr" target="_blank" class="text-white">Moodle de Benoît Roche</a>
             </div>
             <div class="col-4 text-center">
-                <img class="img-fluid" src="{{  asset('images/753331.jpg') }}">
+                <img class="img-fluid" src="{{ asset('images/753331.jpg') }}">
             </div>
             <div class="col-4 text-right txt-footer">
-                <a href="{{ path('message_contact') }}" class="text-white">Contact</a>
-                <a href="#" class="text-white">Mentions légales</a>
+                <a href="#" class="text-white">Mentions légales</a><br>
                 <a href="#" class="text-white">Plan du site</a>
             </div>
         </div>

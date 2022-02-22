@@ -31,18 +31,17 @@ class Message
     /**
      * @ORM\Column(type="string", length=100)
      * @Assert\Email(
-     *      message = "'{{ value }}' n'est pas une adresse mail valide"
+     *      message = "{{ value }}' n'est pas une adresse mail valide"
      * )
-     * 
      */
     private $mail;
 
     /**
      * @ORM\Column(type="text")
      * @Assert\Length(
-     *                  min = 30,
+     *                  min=30,
      *                  minMessage = "Le message à envoyer doit faire au moins {{ limit }} caractères",
-     *              )
+     *                  )
      */
     private $message;
 
