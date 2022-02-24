@@ -24,6 +24,21 @@ class AisShipType
      * @ORM\Column(type="string", length=60)
      */
     private $libelle;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Port::class, inversedBy="lesTypes")
+     * @ORM\JoinTable(
+     *      name="porttypecompatible",
+     *      joinColumns={@ORM\JoinColumn(name="idaistype", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="idport", referencedColumnName="id")}
+     * )
+     */
+    private $lesPorts;
+
+    public function __construct()
+    {
+        $this->lesPorts = new ArrayCollection();
+    }
     
 
     public function getId(): ?int
@@ -51,6 +66,30 @@ class AisShipType
     public function setAisShipType(int $aisShipType): self
     {
         $this->aisShipType = $aisShipType;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Port[]
+     */
+    public function getLesPorts(): Collection
+    {
+        return $this->lesPorts;
+    }
+
+    public function addLesPort(Port $lesPort): self
+    {
+        if (!$this->lesPorts->contains($lesPort)) {
+            $this->lesPorts[] = $lesPort;
+        }
+
+        return $this;
+    }
+
+    public function removeLesPort(Port $lesPort): self
+    {
+        $this->lesPorts->removeElement($lesPort);
 
         return $this;
     }

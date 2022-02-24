@@ -8,6 +8,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=NavireRepository::class)
+ * @ORM\Table( name="navire", 
+ *              uniqueConstraints={@ORM\UniqueConstraint(name="mmsi_unique", columns={"mmsi"})}
+ * )
  */
 class Navire
 {
@@ -19,7 +22,7 @@ class Navire
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=7)
+     * @ORM\Column(type="string", length=7, unique=true)
      * @Assert\Regex(
      *      pattern="/[1-9]{7}/",
      *      message="Le numéro IMO doit comporter 7 chiffres"
@@ -66,6 +69,12 @@ class Navire
      * @ORM\JoinColumn(name="idpays", nullable=false)
      */
     private $lePavillon;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Port::class, inversedBy="naviresAttendus", cascade={"persist"})
+     * @ORM\JoinColumn(name="idportdestination", nullable=false)
+     */
+    private $portDestination;
 
     public function getId(): ?int
     {
@@ -152,6 +161,18 @@ class Navire
     public function setLePavillon(?Pays $lePavillon): self
     {
         $this->lePavillon = $lePavillon;
+
+        return $this;
+    }
+
+    public function getPortDestination(): ?Port
+    {
+        return $this->portDestination;
+    }
+
+    public function setPortDestination(?Port $portDestination): self
+    {
+        $this->portDestination = $portDestination;
 
         return $this;
     }
