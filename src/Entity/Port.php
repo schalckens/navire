@@ -49,7 +49,7 @@ class Port
     private $lesTypes;
 
     /**
-     * @ORM\OneToMany(targetEntity=Navire::class, mappedBy="portDestination")
+     * @ORM\OneToMany(targetEntity=Navire::class, mappedBy="portDestination", cascade={"persist"})
      */
     private $naviresAttendus;
 
