@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\PaysRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=PaysRepository::class)
@@ -18,7 +19,7 @@ class Pays
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=60 , name="indicatif")
+     * @ORM\Column(type="string", length=60 , name="nom")
      */
     private $nom;
 

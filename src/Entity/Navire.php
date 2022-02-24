@@ -61,6 +61,12 @@ class Navire
      */
     private $leType;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Pays::class)
+     * @ORM\JoinColumn(name="idpays", nullable=false)
+     */
+    private $lePavillon;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -134,6 +140,18 @@ class Navire
     public function setLeType(?AisShipType $leType): self
     {
         $this->leType = $leType;
+
+        return $this;
+    }
+
+    public function getLePavillon(): ?Pays
+    {
+        return $this->lePavillon;
+    }
+
+    public function setLePavillon(?Pays $lePavillon): self
+    {
+        $this->lePavillon = $lePavillon;
 
         return $this;
     }
