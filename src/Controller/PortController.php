@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\Port;
+use App\Form\PortType;
 
 /**
  * @Route("/port", name="port_")
@@ -21,7 +23,7 @@ class PortController extends AbstractController
        //$paysrepo->findAll()
        $form=$this->createForm(PortType::class, $port);
        $form->handleRequest($request);
-       if($form->isSubmitrred() && $form->isValid()) {
+       if($form->isSubmitted() && $form->isValid()) {
            $manager->persist($port);
            $manager->flush();
            return $this->redirectToRoute('home');

@@ -3,6 +3,27 @@
 
 {% block body %}
     {{ form_start(form) }}
-    <div></div>
+    <div class="row">
+        <div class="col-2" id="some-custom-id">
+            {{ form_label(form.indicatif, 'Indicatif') }}
+            {{ form_widget(form.indicatif, {'attr' : {'placeholder' : "Saisir l'indicatif du port"}}) }}
+        </div>
+        <div class="col-8" id="some-custom-id">
+            {{ form_label(form.nom, 'Nom du port') }}
+            {{ form_widget(form.nom, {'attr' : {'placeholder' : "Saisir le nom du port"}}) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4" id="some-custom-id">
+            {{ form_label(form.lePays, 'Pays') }}
+            {{ form_widget(form.lePays) }}
+        </div>
+        <div class="col-4" id="some-custom-id">
+            {{ form_label(form.lesTypes, 'Types de navires acceptés') }}
+            {{ form_widget(form.lesTypes) }}
+        </div>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success"> Créer </button>
     {{ form_end(form) }}
 {% endblock %}
