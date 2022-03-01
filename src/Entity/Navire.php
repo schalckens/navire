@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\NavireRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -49,7 +51,7 @@ class Navire
     private $mmsi;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="string", length=10, name="indicatifappel")
      */
     private $indicatifAppel;
 
@@ -60,7 +62,7 @@ class Navire
 
     /**
      * @ORM\ManyToOne(targetEntity=AisShipType::class)
-     * @ORM\JoinColumn(nullable=false, name="aisshiptype")
+     * @ORM\JoinColumn(nullable=false, name="idAisShipType")
      */
     private $leType;
 
@@ -75,6 +77,31 @@ class Navire
      * @ORM\JoinColumn(name="idportdestination", nullable=false)
      */
     private $portDestination;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Escale::class, mappedBy="leNavire", orphanRemoval=true)
+     */
+    private $lesEscales;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $longueur;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $largeur;
+
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=1, name="tirandeau")
+     */
+    private $tirandeau;
+
+    public function __construct()
+    {
+        $this->lesEscales = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -173,6 +200,72 @@ class Navire
     public function setPortDestination(?Port $portDestination): self
     {
         $this->portDestination = $portDestination;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Escale[]
+     */
+    public function getLesEscales(): Collection
+    {
+        return $this->lesEscales;
+    }
+
+    public function addLesEscale(Escale $lesEscale): self
+    {
+        if (!$this->lesEscales->contains($lesEscale)) {
+            $this->lesEscales[] = $lesEscale;
+            $lesEscale->setLeNavire($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLesEscale(Escale $lesEscale): self
+    {
+        if ($this->lesEscales->removeElement($lesEscale)) {
+            // set the owning side to null (unless already changed)
+            if ($lesEscale->getLeNavire() === $this) {
+                $lesEscale->setLeNavire(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getLongueur(): ?int
+    {
+        return $this->longueur;
+    }
+
+    public function setLongueur(int $longueur): self
+    {
+        $this->longueur = $longueur;
+
+        return $this;
+    }
+
+    public function getLargeur(): ?int
+    {
+        return $this->largeur;
+    }
+
+    public function setLargeur(int $largeur): self
+    {
+        $this->largeur = $largeur;
+
+        return $this;
+    }
+
+    public function getTirandeau(): ?string
+    {
+        return $this->tirandeau;
+    }
+
+    public function setTirandeau(string $tirandeau): self
+    {
+        $this->tirandeau = $tirandeau;
 
         return $this;
     }

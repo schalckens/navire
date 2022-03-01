@@ -53,10 +53,16 @@ class Port
      */
     private $naviresAttendus;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Escale::class, mappedBy="lePort", orphanRemoval=true)
+     */
+    private $lesEscales;
+
     public function __construct()
     {
         $this->lesTypes = new ArrayCollection();
         $this->naviresAttendus = new ArrayCollection();
+        $this->lesEscales = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -151,6 +157,36 @@ class Port
             // set the owning side to null (unless already changed)
             if ($naviresAttendu->getPortDestination() === $this) {
                 $naviresAttendu->setPortDestination(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Escale[]
+     */
+    public function getLesEscales(): Collection
+    {
+        return $this->lesEscales;
+    }
+
+    public function addLesEscale(Escale $lesEscale): self
+    {
+        if (!$this->lesEscales->contains($lesEscale)) {
+            $this->lesEscales[] = $lesEscale;
+            $lesEscale->setLePort($this);
+        }
+
+        return $this;
+    }
+
+    public function removeLesEscale(Escale $lesEscale): self
+    {
+        if ($this->lesEscales->removeElement($lesEscale)) {
+            // set the owning side to null (unless already changed)
+            if ($lesEscale->getLePort() === $this) {
+                $lesEscale->setLePort(null);
             }
         }
 

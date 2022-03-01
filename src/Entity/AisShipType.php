@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=AisShipTypeRepository::class)
+ * @ORM\Table(name="aisshiptype")
  */
 class AisShipType
 {
@@ -24,7 +25,7 @@ class AisShipType
      * @ORM\Column(type="string", length=60)
      */
     private $libelle;
-
+    
     /**
      * @ORM\ManyToMany(targetEntity=Port::class, inversedBy="lesTypes")
      * @ORM\JoinTable(
@@ -34,6 +35,17 @@ class AisShipType
      * )
      */
     private $lesPorts;
+
+    /**
+     * @ORM\Column(type="integer", name="aisshiptype")
+     * @Assert\Length(min=1,
+     *          max=9,
+     *          minMessage = "Le type d'un navire est compris entre 1 et 9",
+     *          maxMessage = "Le type d'un navire est compris entre 1 et 9",
+     *          allowEmptyString = false
+     *          )
+     */
+    private $aisShipType;
 
     public function __construct()
     {
@@ -58,18 +70,6 @@ class AisShipType
         return $this;
     }
 
-    public function getAisShipType(): ?int
-    {
-        return $this->aisShipType;
-    }
-
-    public function setAisShipType(int $aisShipType): self
-    {
-        $this->aisShipType = $aisShipType;
-
-        return $this;
-    }
-
     /**
      * @return Collection|Port[]
      */
@@ -90,6 +90,18 @@ class AisShipType
     public function removeLesPort(Port $lesPort): self
     {
         $this->lesPorts->removeElement($lesPort);
+
+        return $this;
+    }
+
+    public function getAisShipType(): ?int
+    {
+        return $this->aisShipType;
+    }
+
+    public function setAisShipType(int $aisShipType): self
+    {
+        $this->aisShipType = $aisShipType;
 
         return $this;
     }

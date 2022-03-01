@@ -6,14 +6,15 @@ use App\Entity\AisShipType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class AisShipTypeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('libelle')
-            ->add('aisShipType')
+            ->add('libelle', TextType::class)
+            ->add('aisShipType', TextType::class)
         ;
     }
 
