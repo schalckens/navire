@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Repository\PaysRepository;
 
 class PortType extends AbstractType
 {
@@ -21,6 +22,10 @@ class PortType extends AbstractType
                 'choice_label' => 'nom',
                 'expanded'=> false,
                 'multiple'=> false,
+                'query_builder'=> function(PaysRepository $repo) {
+                    $lesPaysTries = $repo->getPaysTrieSurNomV2();
+                    return $lesPaysTries;
+                }
             ])
             ->add('lesTypes', EntityType::class, [
                 'class' => \App\Entity\AisShipType::class,

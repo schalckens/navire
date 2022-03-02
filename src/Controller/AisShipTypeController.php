@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\AisShipTypeRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/aisshiptype", name="aisshiptype_")
@@ -37,6 +38,19 @@ class AisShipTypeController extends AbstractController
         $types = $repo->findAll();
         return $this->render('aisshiptype/voirtous.html.twig', [
                     'types' => $types,
+        ]);
+    }
+    
+    /**
+     * @Route("/portscompatibles", name="portscompatibles")
+     * @param AisShipTypeRepository $repo
+     * @return Response
+     */
+    public function portsCompatibles(Request $request,AisShipTypeRepository $repo): Response {
+        $type = $repo->find($request->get('id'));
+        return $this->render('aisshiptype/portscompatibles.html.twig', [
+                    'ports' => $type->lesPorts,
+                    'type' => $type->libelle,
         ]);
     }
 }

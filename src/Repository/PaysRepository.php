@@ -47,4 +47,9 @@ class PaysRepository extends ServiceEntityRepository
         ;
     }
     */
+    
+    public function getPaysTrieSurNom() {
+        return $this->createQueryBuilder('p')
+                ->orderBy('p.nom', 'ASC');
+    }
 }
