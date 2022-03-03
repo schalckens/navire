@@ -15,6 +15,7 @@ class NavireController extends AbstractController
 //    public function index(): Response
 //    {
 //        return $this->render('navire/index.html.twig', [
+//            'controller_name' => 'NavireController',
 //        ]);
 //    }
 //    
