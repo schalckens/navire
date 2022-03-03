@@ -7,40 +7,56 @@
     </button>
 
     <div class="navbar-collapse collapse show" id="navbarColor01" style="">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item active">
-            <img class="img-fluid" src="{{ asset('public/assets/images/titleShip.png') }}">
-          <a class="nav-link" href="#">Home
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </li>
-      </ul>
-          {{ render(controller(
-                        'App\\Controller\\SearchController::searchBar'
-                        )) }}
-      <form class="d-flex">
-        <input class="form-control me-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
+        <ul class="navbar-nav me-auto">
+            <li class="nav-item active">
+                <img class="img-fluid" src="{{ asset('public/assets/images/titleShip.png') }}">
+              <a class="nav-link" href="{{ path('home') }}">Home
+                <span class="visually-hidden">(current)</span>
+              </a>
+            </li>
+
+            {% if user is null %}
+
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Pays </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Se Connecter </a>
+                </li>
+
+            {% elseif 'ROLE_OPER' in user.roles or 'ROLE_USER' in user.roles %}
+                {% if 'ROLE_ADMIN' in user.roles %}
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Navires </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Pays et Ports </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Compte </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Se déconnecter </a>
+                    </li>
+
+                {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Navires </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pays et Ports </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Se déconnecter </a>
+                    </li>
+
+                {% endif %}
+            {% endif %}
+        </ul>
+        <h2> {{ user.nom }} {{ user.prenom }}</h2>
+        {{ render(controller('App\\Controller\\SearchController::searchBar')) }}
     </div>
   </div>
 </nav>
