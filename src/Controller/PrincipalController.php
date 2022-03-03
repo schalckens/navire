@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PrincipalController extends AbstractController
 {
     /**
-     * @Route("/principal", name="principal")
+     * @Route("/home", name="home")
      */
     public function index(): Response
     {

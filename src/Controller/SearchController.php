@@ -30,7 +30,7 @@ class SearchController extends AbstractController
                 ->add('envoimmsi', SubmitType::class)
                 ->getForm()
         ;
-        return $this->render('search/search.html.twig', [
+        return $this->render('elements/searchbar.html.twig', [
                     'formSearch' => $form->createView()
         ]);
     }

@@ -23,7 +23,7 @@ class PortType extends AbstractType
                 'expanded'=> false,
                 'multiple'=> false,
                 'query_builder'=> function(PaysRepository $repo) {
-                    $lesPaysTries = $repo->getPaysTrieSurNomV2();
+                    $lesPaysTries = $repo->getPaysTrieSurNom();
                     return $lesPaysTries;
                 }
             ])
