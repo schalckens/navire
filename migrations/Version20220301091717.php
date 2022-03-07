@@ -20,9 +20,9 @@ final class Version20220301091717 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE aisshiptype ADD aishiptype INT NOT NULL');
-        $this->addSql('ALTER TABLE porttypecompatible ADD CONSTRAINT FK_2C02FFDB53BA86F9 FOREIGN KEY (idaistype) REFERENCES aisshiptype (id)');
-        $this->addSql('ALTER TABLE navire ADD CONSTRAINT FK_EED1038FF348A27 FOREIGN KEY (aisshiptype) REFERENCES aisshiptype (id)');
+//        $this->addSql('ALTER TABLE aisshiptype ADD aisshiptype INT NOT NULL');
+//        $this->addSql('ALTER TABLE porttypecompatible ADD CONSTRAINT FK_2C02FFDB53BA86F9 FOREIGN KEY (idaistype) REFERENCES aisshiptype (id)');
+//        $this->addSql('ALTER TABLE navire ADD CONSTRAINT FK_EED1038FF348A27 FOREIGN KEY (aisshiptype) REFERENCES aisshiptype (id)');
     }
 
     public function down(Schema $schema): void
