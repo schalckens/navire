@@ -20,9 +20,9 @@ final class Version20220308005308 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE escale ADD CONSTRAINT FK_C39FEDD36A50BD94 FOREIGN KEY (idnavire) REFERENCES navire (id)');
-        $this->addSql('ALTER TABLE escale ADD CONSTRAINT FK_C39FEDD3905EAC6C FOREIGN KEY (idport) REFERENCES port (id)');
-        $this->addSql('DROP INDEX IDX_EED1038FF348A27 ON navire');
+//        $this->addSql('ALTER TABLE escale ADD CONSTRAINT FK_C39FEDD36A50BD94 FOREIGN KEY (idnavire) REFERENCES navire (id)');
+//        $this->addSql('ALTER TABLE escale ADD CONSTRAINT FK_C39FEDD3905EAC6C FOREIGN KEY (idport) REFERENCES port (id)');
+//        $this->addSql('DROP INDEX IDX_EED1038FF348A27 ON navire');
         $this->addSql('ALTER TABLE user ADD is_verified TINYINT(1) NOT NULL');
     }
 

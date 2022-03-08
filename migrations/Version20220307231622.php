@@ -23,14 +23,14 @@ final class Version20220307231622 extends AbstractMigration
 //        $this->addSql('ALTER TABLE escale ADD CONSTRAINT FK_C39FEDD36A50BD94 FOREIGN KEY (idnavire) REFERENCES navire (id)');
 //        $this->addSql('ALTER TABLE escale ADD CONSTRAINT FK_C39FEDD3905EAC6C FOREIGN KEY (idport) REFERENCES port (id)');
 //        $this->addSql('DROP INDEX IDX_EED1038FF348A27 ON navire');
-        $this->addSql('ALTER TABLE navire ADD longueur INT NOT NULL, ADD largeur INT NOT NULL, ADD tirandeau NUMERIC(10, 1) NOT NULL, CHANGE aisShipType idportdestination INT NOT NULL, CHANGE indicatif_appel indicatifappel VARCHAR(10) NOT NULL');
-        $this->addSql('ALTER TABLE navire ADD CONSTRAINT FK_EED1038E62DB837 FOREIGN KEY (idAisShipType) REFERENCES aisshiptype (id)');
-        $this->addSql('ALTER TABLE navire ADD CONSTRAINT FK_EED1038427CFE1F FOREIGN KEY (idportdestination) REFERENCES port (id)');
-        $this->addSql('CREATE INDEX IDX_EED1038E62DB837 ON navire (idAisShipType)');
-        $this->addSql('CREATE INDEX IDX_EED1038427CFE1F ON navire (idportdestination)');
-        $this->addSql('ALTER TABLE porttypecompatible DROP PRIMARY KEY');
-        $this->addSql('ALTER TABLE porttypecompatible ADD CONSTRAINT FK_2C02FFDB53BA86F9 FOREIGN KEY (idaistype) REFERENCES aisshiptype (id)');
-        $this->addSql('ALTER TABLE porttypecompatible ADD PRIMARY KEY (idport, idaistype)');
+//        $this->addSql('ALTER TABLE navire ADD longueur INT NOT NULL, ADD largeur INT NOT NULL, ADD tirandeau NUMERIC(10, 1) NOT NULL, CHANGE aisShipType idportdestination INT NOT NULL, CHANGE indicatif_appel indicatifappel VARCHAR(10) NOT NULL');
+//        $this->addSql('ALTER TABLE navire ADD CONSTRAINT FK_EED1038E62DB837 FOREIGN KEY (idAisShipType) REFERENCES aisshiptype (id)');
+//        $this->addSql('ALTER TABLE navire ADD CONSTRAINT FK_EED1038427CFE1F FOREIGN KEY (idportdestination) REFERENCES port (id)');
+//        $this->addSql('CREATE INDEX IDX_EED1038E62DB837 ON navire (idAisShipType)');
+//        $this->addSql('CREATE INDEX IDX_EED1038427CFE1F ON navire (idportdestination)');
+//        $this->addSql('ALTER TABLE porttypecompatible DROP PRIMARY KEY');
+//        $this->addSql('ALTER TABLE porttypecompatible ADD CONSTRAINT FK_2C02FFDB53BA86F9 FOREIGN KEY (idaistype) REFERENCES aisshiptype (id)');
+//        $this->addSql('ALTER TABLE porttypecompatible ADD PRIMARY KEY (idport, idaistype)');
     }
 
     public function down(Schema $schema): void
