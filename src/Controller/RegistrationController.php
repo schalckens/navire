@@ -16,6 +16,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class RegistrationController extends AbstractController
 {
@@ -28,6 +30,9 @@ class RegistrationController extends AbstractController
 
     /**
      * @Route("/register", name="app_register")
+     * @IsGranted("ROLE_ADMIN")or use @Security for more flexibility:
+     *
+     * @Security("is_granted('ROLE_ADMIN') and is_granted('ROLE_FRIENDLY_USER')")
      */
     public function register(Request $request, UserPasswordEncoderInterface $userPasswordEncoder, GuardAuthenticatorHandler $guardHandler, ApplicationAuthenticator $authenticator, EntityManagerInterface $entityManager): Response
     {
@@ -40,9 +45,18 @@ class RegistrationController extends AbstractController
             $user->setPassword(
             $userPasswordEncoder->encodePassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $form->get('password')->getData()
                 )
             );
+            
+            $obj=$form->get('lesRoles')->getData();
+            
+            
+            $arr = [];
+            foreach ( $obj as $unrole) {
+                array_push($arr,$unrole->getLibelle());
+            }
+            $user->setRoles($arr);
 
             $entityManager->persist($user);
             $entityManager->flush();

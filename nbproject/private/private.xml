@@ -4,47 +4,63 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Projet_2021_2022/navire/config/packages/prod/doctrine.yaml</file>
-            <file>file:/D:/Projet_2021_2022/navire/migrations/Version20220301092743.php</file>
             <file>file:/D:/Projet_2021_2022/navire/migrations/.gitignore</file>
-            <file>file:/D:/Projet_2021_2022/navire/templates/elements/footer.html.twig</file>
-            <file>file:/D:/Projet_2021_2022/navire/config/routes.yaml</file>
+            <file>file:/D:/Projet_2021_2022/navire/templates/security/login.html.twig</file>
             <file>file:/D:/Projet_2021_2022/navire/config/packages/dev/web_profiler.yaml</file>
             <file>file:/D:/Projet_2021_2022/navire/config/packages/doctrine.yaml</file>
+            <file>file:/D:/Projet_2021_2022/navire/src/Controller/SecurityController.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/public/assets/images/753331.jpg</file>
+            <file>file:/D:/Projet_2021_2022/navire/src/Controller/PrincipalController.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/src/Form/AisShipTypeType.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/templates/message/contact.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/navire/config/packages/swiftmailer.yaml</file>
+            <file>file:/D:/Projet_2021_2022/navire/templates/message/index.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/navire/config/services.yaml</file>
+            <file>file:/D:/Projet_2021_2022/navire/public/index.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/src/Entity/User.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/composer.lock</file>
+            <file>file:/D:/Projet_2021_2022/navire/config/packages/test/framework.yaml</file>
+            <file>file:/D:/Projet_2021_2022/navire/migrations/Version20220303084036.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/bin/console</file>
+            <file>file:/D:/Projet_2021_2022/navire/templates/message/mail.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/navire/templates/port/edit.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/navire/src/Controller/SearchController.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/config/packages/cache.yaml</file>
+            <file>file:/D:/Projet_2021_2022/navire/src/Kernel.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/symfony.lock</file>
+            <file>file:/D:/Projet_2021_2022/navire/migrations/Version20220301092743.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/templates/elements/footer.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/navire/config/routes.yaml</file>
+            <file>file:/D:/Projet_2021_2022/navire/templates/registration/register.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/navire/src/Controller/RegistrationController.php</file>
             <file>file:/D:/Projet_2021_2022/navire/config/packages/sensio_framework_extra.yaml</file>
             <file>file:/D:/Projet_2021_2022/navire/migrations/Version20220301094034.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/src/Form/PortType.php</file>
             <file>file:/D:/Projet_2021_2022/navire/config/packages/routing.yaml</file>
             <file>file:/D:/Projet_2021_2022/navire/templates/search/index.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/navire/templates/base.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/navire/templates/registration/confirmation_email.html.twig</file>
+            <file>file:/D:/Projet_2021_2022/navire/src/Form/MessageType.php</file>
             <file>file:/D:/Projet_2021_2022/navire/config/packages/test/doctrine.yaml</file>
-            <file>file:/D:/Projet_2021_2022/navire/public/assets/images/753331.jpg</file>
             <file>file:/D:/Projet_2021_2022/navire/config/packages/dev/swiftmailer.yaml</file>
             <file>file:/D:/Projet_2021_2022/navire/config/routes/dev/web_profiler.yaml</file>
             <file>file:/D:/Projet_2021_2022/navire/.env</file>
             <file>file:/D:/Projet_2021_2022/navire/config/routes/dev/framework.yaml</file>
             <file>file:/D:/Projet_2021_2022/navire/src/Entity/Navire.php</file>
-            <file>file:/D:/Projet_2021_2022/navire/templates/message/contact.html.twig</file>
-            <file>file:/D:/Projet_2021_2022/navire/config/packages/swiftmailer.yaml</file>
             <file>file:/D:/Projet_2021_2022/navire/config/routes/annotations.yaml</file>
             <file>file:/D:/Projet_2021_2022/navire/config/packages/security.yaml</file>
-            <file>file:/D:/Projet_2021_2022/navire/templates/message/index.html.twig</file>
-            <file>file:/D:/Projet_2021_2022/navire/config/services.yaml</file>
-            <file>file:/D:/Projet_2021_2022/navire/public/index.php</file>
             <file>file:/D:/Projet_2021_2022/navire/composer.json</file>
-            <file>file:/D:/Projet_2021_2022/navire/composer.lock</file>
-            <file>file:/D:/Projet_2021_2022/navire/config/packages/test/framework.yaml</file>
             <file>file:/D:/Projet_2021_2022/navire/migrations/Version20220301093746.php</file>
-            <file>file:/D:/Projet_2021_2022/navire/migrations/Version20220303084036.php</file>
             <file>file:/D:/Projet_2021_2022/navire/migrations/Version20220303080929.php</file>
-            <file>file:/D:/Projet_2021_2022/navire/bin/console</file>
             <file>file:/D:/Projet_2021_2022/navire/config/packages/framework.yaml</file>
             <file>file:/D:/Projet_2021_2022/navire/migrations/Version20220301091717.php</file>
             <file>file:/D:/Projet_2021_2022/navire/src/Entity/Message.php</file>
             <file>file:/D:/Projet_2021_2022/navire/src/Controller/AisShipTypeController.php</file>
             <file>file:/D:/Projet_2021_2022/navire/config/packages/mailer.yml</file>
-            <file>file:/D:/Projet_2021_2022/navire/templates/message/mail.html.twig</file>
-            <file>file:/D:/Projet_2021_2022/navire/config/packages/cache.yaml</file>
-            <file>file:/D:/Projet_2021_2022/navire/src/Kernel.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/src/Entity/Role.php</file>
+            <file>file:/D:/Projet_2021_2022/navire/src/Form/RegistrationFormType.php</file>
             <file>file:/D:/Projet_2021_2022/navire/src/Controller/MessageController.php</file>
-            <file>file:/D:/Projet_2021_2022/navire/symfony.lock</file>
+            <file>file:/D:/Projet_2021_2022/navire/templates/elements/navbar.html.twig</file>
             <file>file:/D:/Projet_2021_2022/navire/migrations/Version20220301113805.php</file>
             <file>file:/D:/Projet_2021_2022/navire/migrations/Version20220307231622.php</file>
             <file>file:/D:/Projet_2021_2022/navire/config/packages/doctrine_migrations.yaml</file>
